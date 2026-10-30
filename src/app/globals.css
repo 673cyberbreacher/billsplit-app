@@ -42,47 +42,7 @@
   --color-popover-foreground: #f8fafc;
 }
 
-* {
-  border-color: var(--border);
-}
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-}
-
-/* Radial Orb Backgrounds */
-.orb-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.4;
-  animation: orb-float 20s ease-in-out infinite;
-}
-
-.orb-1 { width: 600px; height: 600px; background: var(--orb-1); top: -200px; right: -200px; animation-delay: 0s; }
-.orb-2 { width: 400px; height: 400px; background: var(--orb-2); bottom: 20%; left: -100px; animation-delay: -5s; }
-.orb-3 { width: 300px; height: 300px; background: var(--orb-3); top: 30%; left: 10%; animation-delay: -10s; }
-.orb-4 { width: 350px; height: 350px; background: var(--orb-4); bottom: 10%; right: 15%; animation-delay: -15s; }
-.orb-5 { width: 250px; height: 250px; background: var(--orb-5); top: 60%; right: 5%; animation-delay: -7s; }
-
-@keyframes orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -20px) scale(1.05); }
-  50% { transform: translate(-20px, 30px) scale(0.95); }
-  75% { transform: translate(20px, 20px) scale(1.02); }
-}
-
-/* Liquid Glass Utility */
+/* Glass/Liquid Glass Utility Classes */
 .glass {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -153,7 +113,7 @@ body {
 
 /* Harsh Gradient Text */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary-glow) 0%, var(--accent-glow) 50%, var(--orb-3) 100%);
+  background: linear-gradient(135deg, var(--primary-glow) 0%, var(--accent-glow) 50%, var(--color-orb-3) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -182,7 +142,17 @@ body {
 
 /* Glass Cards */
 .card-glass {
-  @apply glass rounded-2xl p-6 transition-all duration-300;
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .card-glass:hover {
@@ -196,22 +166,32 @@ body {
 }
 
 .card-glass-strong {
-  @apply glass-strong rounded-2xl p-6 transition-all duration-300;
+  background: var(--glass-strong);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(34, 211, 238, 0.1) inset;
 }
 
 /* Gradient Borders */
 .border-gradient {
   position: relative;
   background: var(--card);
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 
 .border-gradient::before {
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 17px;
-  background: linear-gradient(135deg, var(--primary-glow), var(--accent), var(--orb-3));
+  border-radius: 1.0625rem;
+  background: linear-gradient(135deg, var(--primary-glow), var(--accent), var(--color-orb-3));
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease;
@@ -221,19 +201,36 @@ body {
 
 /* Input Glass */
 .input-glass {
-  @apply glass rounded-xl border-0 px-4 py-3.5 text-foreground placeholder:text-muted-foreground/60 transition-all duration-300;
   background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: var(--foreground);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-glass::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.6;
 }
 
 .input-glass:focus {
-  @apply outline-none ring-2 ring-primary-glow/50;
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary-glow);
+  ring-opacity: 0.5;
   background: rgba(15, 23, 42, 0.7);
   box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1), inset 0 0 20px rgba(34, 211, 238, 0.05);
 }
 
 /* Navigation Glass */
 .nav-glass {
-  @apply glass-strong border-b border-glass-border;
+  background: var(--glass-strong);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 /* Scrollbar */
@@ -264,6 +261,13 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(20px, 20px) scale(1.02); }
+}
+
 .animate-slide-up { animation: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 .animate-fade-in { animation: fade-in 0.3s ease forwards; }
 .animate-scale-in { animation: scale-in 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
@@ -290,7 +294,10 @@ body {
 
 /* Glowing Badge */
 .badge-glow {
-  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
   background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(14, 165, 233, 0.15));
   border: 1px solid var(--glass-border);
   color: var(--primary-glow);
@@ -298,7 +305,10 @@ body {
 }
 
 .badge-glow-success {
-  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
   border: 1px solid rgba(34, 197, 94, 0.3);
   color: var(--success-glow);
@@ -306,7 +316,10 @@ body {
 }
 
 .badge-glow-warning {
-  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
   border: 1px solid rgba(245, 158, 11, 0.3);
   color: var(--warning-glow);
@@ -314,9 +327,46 @@ body {
 }
 
 .badge-glow-destructive {
-  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
   border: 1px solid rgba(239, 68, 68, 0.3);
   color: var(--destructive-glow);
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+
+/* Radial Orb Backgrounds */
+.orb-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.orb-1 { width: 600px; height: 600px; background: var(--color-orb-1); top: -200px; right: -200px; animation-delay: 0s; }
+.orb-2 { width: 400px; height: 400px; background: var(--color-orb-2); bottom: 20%; left: -100px; animation-delay: -5s; }
+.orb-3 { width: 300px; height: 300px; background: var(--color-orb-3); top: 30%; left: 10%; animation-delay: -10s; }
+.orb-4 { width: 350px; height: 350px; background: var(--color-orb-4); bottom: 10%; right: 15%; animation-delay: -15s; }
+.orb-5 { width: 250px; height: 250px; background: var(--color-orb-5); top: 60%; right: 5%; animation-delay: -7s; }
+
+/* Base styles */
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }

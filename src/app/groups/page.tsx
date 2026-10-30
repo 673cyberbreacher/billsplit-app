@@ -270,7 +270,7 @@ export default function GroupsPage() {
             ))}
           </div>
         ) : (
-          /* Empty State */}
+          {/* Empty State */}
           <Card className="card-glass animate-slide-up">
             <CardContent className="flex flex-col items-center justify-center py-16 px-8 text-center">
               <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-glow/10">
