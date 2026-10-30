@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+:root {
   /* Harsh Gradient Palette */
   --color-primary: #0f172a;
   --color-primary-foreground: #f8fafc;
@@ -44,31 +44,31 @@
 
 /* Glass/Liquid Glass Utility Classes */
 .glass {
-  background: var(--glass);
+  background: var(--color-glass);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-glass-border);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 0 1px 0 var(--color-glass-highlight),
     0 4px 24px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .glass-strong {
-  background: var(--glass-strong);
+  background: var(--color-glass-strong);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-glass-border);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 0 1px 0 var(--color-glass-highlight),
     0 8px 32px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(34, 211, 238, 0.1) inset;
 }
 
 /* Harsh Gradient Buttons */
 .btn-gradient {
-  background: linear-gradient(135deg, var(--primary-glow) 0%, var(--accent) 100%);
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--color-primary-glow) 0%, var(--color-accent) 100%);
+  color: var(--color-primary);
   font-weight: 600;
   position: relative;
   overflow: hidden;
@@ -79,7 +79,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--accent-glow) 0%, var(--primary-glow) 100%);
+  background: linear-gradient(135deg, var(--color-accent-glow) 0%, var(--color-primary-glow) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -90,19 +90,19 @@
 
 .btn-gradient-secondary {
   background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(14, 165, 233, 0.1) 100%);
-  color: var(--primary-glow);
-  border: 1px solid var(--glass-border);
+  color: var(--color-primary-glow);
+  border: 1px solid var(--color-glass-border);
   transition: all 0.3s ease;
 }
 
 .btn-gradient-secondary:hover {
   background: linear-gradient(135deg, rgba(34, 211, 238, 0.25) 0%, rgba(14, 165, 233, 0.2) 100%);
-  border-color: var(--primary-glow);
+  border-color: var(--color-primary-glow);
   box-shadow: 0 0 30px rgba(34, 211, 238, 0.2);
 }
 
 .btn-gradient-destructive {
-  background: linear-gradient(135deg, var(--destructive-glow) 0%, var(--destructive) 100%);
+  background: linear-gradient(135deg, var(--color-destructive-glow) 0%, var(--color-destructive) 100%);
   color: white;
   transition: all 0.3s ease;
 }
@@ -113,7 +113,7 @@
 
 /* Harsh Gradient Text */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary-glow) 0%, var(--accent-glow) 50%, var(--color-orb-3) 100%);
+  background: linear-gradient(135deg, var(--color-primary-glow) 0%, var(--color-accent-glow) 50%, var(--color-orb-3) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -122,14 +122,14 @@
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, var(--warning-glow) 0%, var(--destructive-glow) 100%);
+  background: linear-gradient(135deg, var(--color-warning-glow) 0%, var(--color-destructive-glow) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-success {
-  background: linear-gradient(135deg, var(--success-glow) 0%, var(--primary-glow) 100%);
+  background: linear-gradient(135deg, var(--color-success-glow) 0%, var(--color-primary-glow) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -142,39 +142,39 @@
 
 /* Glass Cards */
 .card-glass {
-  background: var(--glass);
+  background: var(--color-glass);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-glass-border);
   border-radius: 1rem;
   padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 0 1px 0 var(--color-glass-highlight),
     0 4px 24px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .card-glass:hover {
-  border-color: var(--primary-glow);
+  border-color: var(--color-primary-glow);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 0 1px 0 var(--color-glass-highlight),
     0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px var(--primary-glow) inset,
+    0 0 0 1px var(--color-primary-glow) inset,
     0 0 60px rgba(34, 211, 238, 0.1);
   transform: translateY(-4px);
 }
 
 .card-glass-strong {
-  background: var(--glass-strong);
+  background: var(--color-glass-strong);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-glass-border);
   border-radius: 1rem;
   padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
+    inset 0 1px 0 var(--color-glass-highlight),
     0 8px 32px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(34, 211, 238, 0.1) inset;
 }
@@ -182,7 +182,7 @@
 /* Gradient Borders */
 .border-gradient {
   position: relative;
-  background: var(--card);
+  background: var(--color-card);
   border-radius: 1rem;
 }
 
@@ -191,7 +191,7 @@
   position: absolute;
   inset: -1px;
   border-radius: 1.0625rem;
-  background: linear-gradient(135deg, var(--primary-glow), var(--accent), var(--color-orb-3));
+  background: linear-gradient(135deg, var(--color-primary-glow), var(--color-accent), var(--color-orb-3));
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease;
@@ -204,22 +204,22 @@
   background: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-glass-border);
   border-radius: 0.75rem;
   padding: 0.875rem 1rem;
-  color: var(--foreground);
+  color: var(--color-foreground);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-glass::placeholder {
-  color: var(--muted-foreground);
+  color: var(--color-muted-foreground);
   opacity: 0.6;
 }
 
 .input-glass:focus {
   outline: none;
   ring: 2px;
-  ring-color: var(--primary-glow);
+  ring-color: var(--color-primary-glow);
   ring-opacity: 0.5;
   background: rgba(15, 23, 42, 0.7);
   box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1), inset 0 0 20px rgba(34, 211, 238, 0.05);
@@ -227,23 +227,23 @@
 
 /* Navigation Glass */
 .nav-glass {
-  background: var(--glass-strong);
+  background: var(--color-glass-strong);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--color-glass-border);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--muted); }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--primary-glow), var(--accent)); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--accent-glow), var(--primary-glow)); }
+::-webkit-scrollbar-track { background: var(--color-muted); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--color-primary-glow), var(--color-accent)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--color-accent-glow), var(--color-primary-glow)); }
 
 /* Focus Visible */
-:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
 
 /* Selection */
-::selection { background-color: var(--primary-glow); color: var(--primary); }
+::selection { background-color: var(--color-primary-glow); color: var(--color-primary); }
 
 /* Animations */
 @keyframes slide-up {
@@ -289,7 +289,7 @@
 /* Harsh Gradient Divider */
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary-glow), var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary-glow), var(--color-accent), transparent);
 }
 
 /* Glowing Badge */
@@ -299,8 +299,8 @@
   font-size: 0.75rem;
   font-weight: 600;
   background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(14, 165, 233, 0.15));
-  border: 1px solid var(--glass-border);
-  color: var(--primary-glow);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-primary-glow);
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
 }
 
@@ -311,7 +311,7 @@
   font-weight: 600;
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
   border: 1px solid rgba(34, 197, 94, 0.3);
-  color: var(--success-glow);
+  color: var(--color-success-glow);
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
 }
 
@@ -322,7 +322,7 @@
   font-weight: 600;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
   border: 1px solid rgba(245, 158, 11, 0.3);
-  color: var(--warning-glow);
+  color: var(--color-warning-glow);
   box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
 }
 
@@ -333,7 +333,7 @@
   font-weight: 600;
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
   border: 1px solid rgba(239, 68, 68, 0.3);
-  color: var(--destructive-glow);
+  color: var(--color-destructive-glow);
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
 }
 
@@ -362,11 +362,11 @@
 
 /* Base styles */
 * {
-  border-color: var(--border);
+  border-color: var(--color-border);
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
