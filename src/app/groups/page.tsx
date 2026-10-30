@@ -3,10 +3,13 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Plus, Users, CreditCard, ArrowRightLeft, MoreVertical, Edit, Trash2, Settings, Zap, Activity } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { Label } from '@/components/ui/label'
+import { Plus, Users, CreditCard, ArrowRightLeft, MoreVertical, Edit, Trash2, Settings, Zap, Activity, Shield, Globe } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const mockGroups = [

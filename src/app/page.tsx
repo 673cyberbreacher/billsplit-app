@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { Users, CreditCard, ArrowRight, Shield, Zap, Sparkles, ArrowUpRight, Globe, Lock, Zap as ZapIcon } from 'lucide-react'
+import { Users, CreditCard, ArrowRight, Shield, Zap, Sparkles, ArrowUpRight, Globe, Lock, ArrowRightLeft, Zap as ZapIcon } from 'lucide-react'
 
 export default function LandingPage() {
   return (
@@ -158,7 +158,7 @@ export default function LandingPage() {
                 <Link key={feature.title} href="/register" className="group">
                   <Card className="card-glass group-hover:border-primary-glow/50 group-hover:shadow-[0_0_60px_rgba(34,211,238,0.15)]">
                     <CardHeader>
-                      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br" style={{background: `var(--tw-gradient-from, ${feature.gradient.split(' ')[1]})`, background: `var(--tw-gradient-to, ${feature.gradient.split(' ')[3]})`}}>
+                      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br" style={{background: `linear-gradient(to bottom right, ${feature.gradient.split(' ')[1]}, ${feature.gradient.split(' ')[3]})`}}>
                         <feature.icon className="h-6 w-6 text-primary" />
                       </div>
                       <CardTitle className="text-xl">{feature.title}</CardTitle>

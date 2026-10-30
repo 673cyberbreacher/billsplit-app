@@ -8,11 +8,8 @@ const createSettlementSchema = z.object({
   fromUserId: z.string(),
   toUserId: z.string(),
   amount: z.number().positive(),
-  currency: z.string().length(3),
   method: z.string().optional(),
   reference: z.string().max(100).optional(),
-  date: z.string(),
-  notes: z.string().max(500).optional(),
 }).refine(data => data.fromUserId !== data.toUserId, {
   message: 'Payer and receiver cannot be the same person',
   path: ['toUserId'],
@@ -44,13 +41,10 @@ export async function POST(req: NextRequest) {
         fromUserId: data.fromUserId,
         toUserId: data.toUserId,
         amount: data.amount,
-        currency: data.currency,
         status: 'COMPLETED',
         method: data.method,
         reference: data.reference,
-        date: new Date(data.date),
         completedAt: new Date(),
-        notes: data.notes,
       },
       include: {
         fromUser: { select: { id: true, name: true, email: true } },
@@ -62,7 +56,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(settlement, { status: 201 })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ message: error.errors[0].message }, { status: 400 })
+      return NextResponse.json({ message: error.issues[0].message }, { status: 400 })
     }
     console.error('Create settlement error:', error)
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 })
@@ -91,7 +85,7 @@ export async function GET(req: NextRequest) {
         toUser: { select: { id: true, name: true, email: true, image: true } },
         group: { select: { id: true, name: true, currency: true } },
       },
-      orderBy: { date: 'desc' },
+      orderBy: { createdAt: 'desc' },
     })
 
     return NextResponse.json(settlements)

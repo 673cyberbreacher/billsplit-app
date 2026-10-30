@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Plus, Users, CreditCard, ArrowRightLeft, LogOut, Bell, Settings, TrendingUp, ArrowUpRight, Activity } from 'lucide-react'
+import { Plus, Users, CreditCard, ArrowRightLeft, LogOut, Bell, Settings, TrendingUp, ArrowUpRight, Activity, Zap, Shield, Globe } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function DashboardPage() {
